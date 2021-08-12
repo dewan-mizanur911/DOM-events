@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble</title>
+</head>
+<body>
+    <h2>Event Bubble vai</h2>
+    <section id="bubble">
+        <p id="para">Bubble vai list
+            <ul id="ul">
+                <li class="list">list -1</li>
+                <li id="second-item" class="list">list -2</li>
+                <li class="list">list -3</li>
+                <li class="list">list -4</li>
+            </ul>
+        </p>
+    </section>
+
+    <script>
+        document.getElementById('second-item').addEventListener('click', function(event){
+            event.stopImmediatePropagation();
+            console.log('clicked second item 1');
+        })
+        document.getElementById('second-item').addEventListener('click', function(event){
+            event.stopPropagation();
+            console.log('clicked second item 2');
+        })
+        document.getElementById('second-item').addEventListener('click', function(event){
+            event.stopPropagation();
+            console.log('clicked second item 3');
+        })
+        document.getElementById('second-item').addEventListener('click', function(event){
+            event.stopPropagation();
+            console.log('clicked second item 4');
+        })
+
+         document.getElementById('ul').addEventListener('click', function(event){
+            event.stopPropagation();
+            console.log('Clicked unordered list');
+        })
+
+         document.getElementById('bubble').addEventListener('click', function(){
+            console.log('Clicked Bubble section');
+        })
+    </script>
+</body>
+</html>
