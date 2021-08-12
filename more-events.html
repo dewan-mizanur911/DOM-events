@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Events</title>
+</head>
+<body>
+    <h1>More Events</h1>
+    <p id="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis et, placeat nemo ex, tempora adipisci explicabo omnis quas asperiores quidem, nesciunt ullam itaque? Reiciendis, atque eaque magnam distinctio quod exercitationem.</p>
+    <input type="text" id="input">
+    <button id="delete-btn" disabled>Delete</button>
+
+    <script>
+        // simple delete using display none
+        document.getElementById('delete-btn').addEventListener('click', function(){
+            document.getElementById('paragraph').style.display = 'none';
+            document.getElementById('input').value = '';
+        })
+
+        // focus
+        document.getElementById('input').addEventListener('focus', function(){
+            document.body.style.backgroundColor = 'coral';
+        })
+
+        // onkeyup
+        document.getElementById('input').addEventListener('keyup', function(event){
+            const button = document.getElementById('delete-btn');
+            if(event.target.value == 'delete'){
+                button.removeAttribute('disabled');
+            }
+            else{
+                button.setAttribute('disabled', true);
+            }
+        })
+
+        /* 
+              // onkeydown
+        document.getElementById('input').addEventListener('keydown', function(){
+            console.log(document.getElementById('input').value);
+        })
+              // onkeypress
+        document.getElementById('input').addEventListener('keypress', function(){
+            console.log(document.getElementById('input').value);
+        })
+              // change
+        document.getElementById('input').addEventListener('change', function(){
+            console.log(document.getElementById('input').value);
+        })
+        */
+    </script>
+</body>
+</html>
