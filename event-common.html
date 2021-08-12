@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Common</title>
+</head>
+<body>
+    <p id="changedParagraph"></p>
+    <input type="text" id="input">
+    <button id="update">update</button>
+    <button onclick="changePara()">Just function</button>
+    <button id="direct">Direct add Event Listener</button>
+    <script>
+        // using onclick event
+        function changePara(){
+            const paragraph = document.getElementById('changedParagraph');
+            paragraph.innerText = 'Updated by onclick event';
+        }
+
+        // Direct
+        document.getElementById('direct').addEventListener('click', function (){
+            document.getElementById('changedParagraph').innerText = 'Added by direct anonymous function';
+        })
+
+        // update from input field
+        document.getElementById('update').addEventListener('click', function(){
+            const input = document.getElementById('input');
+            document.getElementById('changedParagraph').innerText = input.value;
+            input.value = '';
+        })
+    </script>
+</body>
+</html>
