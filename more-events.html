@@ -24,6 +24,11 @@
             document.body.style.backgroundColor = 'coral';
         })
 
+         // blur
+        document.getElementById('input').addEventListener('blur', function(){
+            document.body.style.backgroundColor = 'white';
+        })
+
         // onkeyup
         document.getElementById('input').addEventListener('keyup', function(event){
             const button = document.getElementById('delete-btn');
